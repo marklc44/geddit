@@ -1,0 +1,45 @@
+<html>
+<head>
+	<style>
+		.button {
+			display:block;
+			background:blue;
+			border-radius: 6px;
+			padding:.25em .5em;
+			color:#fff;
+			text-decoration:none;
+			appearance: none;
+		}
+		.button:hover {
+			background:orange;
+		}
+	</style>
+</head>
+<body>
+	<a href="<%= new_story_path %>" class="button" style="float:right;">Submit a new link</a>
+	<h1><a href="<%= root_path %>">Geddit</a></h1>
+	<h2>Submit to Geddit</h2>
+
+	<%= form_for @story do |f| %>
+		<div>
+			title<br>
+			<%= f.text_area :title, :cols => 40 %>
+		</div>
+
+		<div>
+			url<br>
+			<%= f.text_field :url, :style => "width: 300px;" %>
+		</div>
+
+		<div>
+			username<br>
+			<%= f.text_field :username %>
+		</div>
+
+		<div>
+			<%= f.submit "submit", :class => "button" %>
+		</div>
+	<% end %>
+	
+</body>
+</html>

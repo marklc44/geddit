@@ -1,0 +1,31 @@
+<html>
+<head>
+	<style>
+		.button {
+			display:block;
+			background:blue;
+			border-radius: 6px;
+			padding:.25em .5em;
+			color:#fff;
+			text-decoration:none;
+		}
+		.button:hover {
+			background:orange;
+		}
+	</style>
+</head>
+<body>
+	<a href="<%= new_story_path %>" class="button" style="float:right;">Submit a new link</a>
+	<h1><a href="<%= root_path %>">Geddit</a></h1>
+
+	<% @stories.each do |story| %>
+		<div>
+			<p>
+				<a href="<%= story.url %>"><%= story.title %></a>
+			</p>
+			<p>submitted <%= time_ago_in_words(story.created_at) %> hours ago by <%= story.username %></p>
+		</div>
+	<% end %>
+	
+</body>
+</html>
